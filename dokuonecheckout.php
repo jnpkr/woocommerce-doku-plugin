@@ -297,7 +297,7 @@ function woocommerce_gateway_dokuonecheckout_init()
 						{
 								foreach( $order->get_items() as $item )
 								{
-										$BASKET .= $item['name'] . "," . number_format($order->get_item_subtotal($item), 2, '.', '') . "," . $item['qty'] . "," . number_format($order->get_item_subtotal($item)*$item['qty'], 2, '.', '') . ";";
+										$BASKET .= str_replace(",", "", $item['name']) . "," . number_format($order->get_item_subtotal($item), 2, '.', '') . "," . $item['qty'] . "," . number_format($order->get_item_subtotal($item)*$item['qty'], 2, '.', '') . ";";
 								}
 						}
 
